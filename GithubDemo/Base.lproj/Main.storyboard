@@ -113,7 +113,13 @@
                             <constraint firstAttribute="trailing" secondItem="QiV-Qk-MUj" secondAttribute="trailing" id="Mh7-db-yMS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="x5q-EH-pP8"/>
+                    <navigationItem key="navigationItem" id="x5q-EH-pP8">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="pPC-Qd-TKR">
+                            <connections>
+                                <segue destination="3Vu-7I-3H2" kind="presentation" id="pe6-9n-zcu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="QiV-Qk-MUj" id="ec0-18-GJV"/>
                     </connections>
@@ -121,6 +127,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="818.39999999999998" y="-558.17091454272872"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="Tus-Of-YLc">
+            <objects>
+                <viewController id="YR6-2d-Pb4" customClass="SettingsViewController" customModule="GithubDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bUy-4G-lxs"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xkc-k4-lSs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="igw-pA-gVy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="10000" translatesAutoresizingMaskIntoConstraints="NO" id="mer-Mh-53C">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="GBV-l2-Qx0"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="starSliderChanged:" destination="YR6-2d-Pb4" eventType="valueChanged" id="CjP-ft-wIu"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Min stars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7P-iB-Ez8">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylM-LJ-9WU">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="S7P-iB-Ez8" firstAttribute="leading" secondItem="igw-pA-gVy" secondAttribute="leading" constant="16" id="7aI-Gv-H8N"/>
+                            <constraint firstItem="ylM-LJ-9WU" firstAttribute="centerY" secondItem="mer-Mh-53C" secondAttribute="centerY" id="ANN-Jg-TnS"/>
+                            <constraint firstItem="ylM-LJ-9WU" firstAttribute="leading" secondItem="mer-Mh-53C" secondAttribute="trailing" constant="8" id="cga-tu-4DM"/>
+                            <constraint firstItem="mer-Mh-53C" firstAttribute="leading" secondItem="S7P-iB-Ez8" secondAttribute="trailing" constant="16" id="dAn-JB-RiX"/>
+                            <constraint firstItem="S7P-iB-Ez8" firstAttribute="top" secondItem="bUy-4G-lxs" secondAttribute="bottom" constant="16" id="f6n-pg-ieu"/>
+                            <constraint firstItem="mer-Mh-53C" firstAttribute="centerY" secondItem="S7P-iB-Ez8" secondAttribute="centerY" id="fk5-Cp-yRm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="YU7-ge-2Pt">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="cSv-mA-rqH">
+                            <connections>
+                                <action selector="cancelTapped:" destination="YR6-2d-Pb4" id="DxU-Xb-KsF"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="p0n-h4-Tld">
+                            <connections>
+                                <action selector="saveTapped:" destination="YR6-2d-Pb4" id="GQA-5G-UqP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cancelButtonItem" destination="cSv-mA-rqH" id="w2M-0x-OhN"/>
+                        <outlet property="saveButtonItem" destination="p0n-h4-Tld" id="Fcs-c3-xsg"/>
+                        <outlet property="starCount" destination="ylM-LJ-9WU" id="0iG-a6-gXh"/>
+                        <outlet property="starSlider" destination="mer-Mh-53C" id="9uX-FC-lEU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ECT-kT-jBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2212" y="-561.76911544227892"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FpP-oR-azb">
@@ -138,7 +208,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dru-y2-L7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="-557"/>
+            <point key="canvasLocation" x="87" y="-558"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="q5e-9f-5KA">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yff-i0-RPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Vu-7I-3H2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lpl-YR-VBh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YR6-2d-Pb4" kind="relationship" relationship="rootViewController" id="nu0-Zt-YPt"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1525.5999999999999" y="-560.86956521739137"/>
         </scene>
     </scenes>
     <resources>

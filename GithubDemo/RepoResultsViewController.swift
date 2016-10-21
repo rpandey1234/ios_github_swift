@@ -71,6 +71,12 @@ class RepoResultsViewController: UIViewController, UITableViewDelegate, UITableV
                 print(error)
         })
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navigationController = segue.destination as! UINavigationController
+        let settingsViewController = navigationController.topViewController as! SettingsViewController
+        settingsViewController.searchSettings = searchSettings
+    }
 }
 
 // SearchBar methods
