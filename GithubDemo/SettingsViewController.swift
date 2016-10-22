@@ -8,6 +8,8 @@
 
 import UIKit
 
+// define protocol here
+
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var cancelButtonItem: UIBarButtonItem!
@@ -30,14 +32,12 @@ class SettingsViewController: UIViewController {
     @IBAction func saveTapped(_ sender: AnyObject) {
         dismiss(animated: true) { 
             print("should save data here")
-            
         }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("hello")
         print(searchSettings.minStars)
         starCount.text = String(searchSettings.minStars)
         // Do any additional setup after loading the view.
