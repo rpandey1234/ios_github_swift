@@ -9,6 +9,9 @@
 import UIKit
 
 // define protocol here
+@objc protocol SettingsViewControllerDelegate {
+    @objc func settingsViewController(settingsViewController: SettingsViewController, didUpdateFilters filters: [String:AnyObject])
+}
 
 class SettingsViewController: UIViewController {
 
@@ -16,6 +19,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var saveButtonItem: UIBarButtonItem!
     @IBOutlet weak var starCount: UILabel!
     @IBOutlet weak var starSlider: UISlider!
+    weak var delegate: SettingsViewControllerDelegate?
     var searchSettings = GithubRepoSearchSettings()
     
     @IBAction func cancelTapped(_ sender: AnyObject) {
@@ -32,6 +36,9 @@ class SettingsViewController: UIViewController {
     @IBAction func saveTapped(_ sender: AnyObject) {
         dismiss(animated: true) { 
             print("should save data here")
+            var filters = [String: AnyObject]()
+            // fill in filters here
+            delegate?.settingsViewController(settingsViewController: self, didUpdateFilters: filters)
         }
     }
     
