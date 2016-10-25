@@ -37,8 +37,9 @@ class SettingsViewController: UIViewController {
         dismiss(animated: true) { 
             print("should save data here")
             var filters = [String: AnyObject]()
+            filters["minStars"] = starSlider.value
             // fill in filters here
-            delegate?.settingsViewController(settingsViewController: self, didUpdateFilters: filters)
+            delegate?.settingsViewController(settingsViewController: self, didUpdateFilters: filters) as AnyObject?
         }
     }
     
